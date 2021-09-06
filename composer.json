@@ -1,0 +1,34 @@
+{
+    "name": "morieti/iran-banks-info",
+    "description": "This package provides information about Iranian banks, such as iban code, card numbers and logos",
+    "keywords": [
+        "iran",
+        "bank",
+        "iban",
+        "card number",
+        "logo"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Morteza Pouretemadi",
+            "email": "pouretemadi.morteza@gmail.com",
+            "homepage": "https://morteza-pouretemadi.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Morieti\\DiscountGenerator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Morieti\\Tests\\DiscountGenerator\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "extra": {
+    }
+}
