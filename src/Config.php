@@ -7,7 +7,7 @@ class Config
 {
     protected $standardCardNumberSize = 16;
     protected $standardIbanSize = 26;
-    protected $baseImagePath = '';
+    protected $baseImagePath = 'public/iran_banks_images';
 
     /**
      * @return int
@@ -55,5 +55,23 @@ class Config
     public function setBaseImagePath($path)
     {
         $this->baseImagePath = $path;
+    }
+
+    public static function publishBankImages()
+    {
+        $imgPath = __DIR__ . '/../img';
+        $publicPath = __DIR__ . '/../../../../public';
+        $publicImagePath = $publicPath . '/iran_banks_images';
+
+        is_dir($publicPath) || mkdir($publicPath);
+        is_dir($publicImagePath) || mkdir($publicImagePath);
+
+        $files = scandir($imgPath);
+        foreach ($files as $file) {
+            if ($file === '.' || $file === '..') {
+                continue;
+            }
+            copy("$imgPath/$file", "$publicImagePath/$file");
+        }
     }
 }

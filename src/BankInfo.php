@@ -28,7 +28,7 @@ class BankInfo
      */
     public static function getBanksData(): array
     {
-        return (array)json_decode(file_get_contents('banks.json'), true);
+        return (array)json_decode(file_get_contents(__DIR__ . '/banks.json'), true);
     }
 
     /**
@@ -79,7 +79,7 @@ class BankInfo
             throw new NotProcessableInputException();
         }
 
-        $bank['logo'] = realpath(static::instance()->getBaseImagePath() . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . $bank['slug']);
+        $bank['logo'] = static::instance()->getBaseImagePath() . DIRECTORY_SEPARATOR . $bank['slug'] . '.png';
         return $bank;
     }
 }
